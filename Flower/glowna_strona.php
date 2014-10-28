@@ -16,7 +16,6 @@
 </div>
 
 <div id="right">
-
 <table class = "tabelka">
   <tr>
     <td>Miniaturka</td>
