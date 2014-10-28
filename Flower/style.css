@@ -19,9 +19,9 @@ font-size: 30px;
 font-weight: 100;
 letter-spacing: -1px;
 padding: 22px 0 5px 10px;
+color: white;
 }
 #header h1 a {
-color: #fff;
 text-decoration: none;
 }
 #header h1 a:hover {
@@ -45,3 +45,6 @@ line-height: 12px;
 #footer { font-size: 11px; text-align: center; border-top: 1px solid #ccc; padding: 10px 5px; }
 
 .tabelka { width:100%; border: 1px solid #C9C9C9; position:relative; top:20px;}
+td { border: 1px solid #C0C0C0; text-align:center;}
+
+td img { border-radius: 5px; width:100px;}
