@@ -38,13 +38,17 @@ line-height: 12px;
 }
 
 #wrap { padding: 10px 10px 3px 10px; width: 760px; margin:20px auto; background: #fff;}
-#left { float: left; width: 180px; background: #CFDDFF; margin-bottom: 10px; margin-top: 20px;}
+#left { float: left; width: 180px; background: #CCCCCC; margin-bottom: 10px; margin-top: 20px;}
 #left ul { padding: 5px 10px 10px 10px; margin: 0; }
 #right { margin-bottom: 10px; float: right; width: 550px; padding: 0 10px 10px 10px; margin-top: 10px;}
 	
 #footer { font-size: 11px; text-align: center; border-top: 1px solid #ccc; padding: 10px 5px; }
 
-.tabelka { width:100%; border: 1px solid #C9C9C9; position:relative; top:20px;}
+.tabelka { width:100%; border: 1px solid #C9C9C9; position:relative; top:20px; border-radius:10px; 
+  background: -webkit-linear-gradient(180deg, #BBBBBB, #EEEEEE); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(180deg, #BBBBBB, #EEEEEE); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(180deg, #BBBBBB, #EEEEEE); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(180deg, #BBBBBB, #EEEEEE); /* Standard syntax */}
 td { border: 1px solid #C0C0C0; text-align:center;}
 
 td img { border-radius: 5px; width:100px;}
