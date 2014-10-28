@@ -33,7 +33,6 @@
 </div>
 
 <div id="left"> 
-
 <h3>Categories :</h3>
 <ul>
 <li><a href="#">Dodaj wycieczkę</a></li> 
