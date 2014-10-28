@@ -43,3 +43,5 @@ line-height: 12px;
 #right { margin-bottom: 10px; float: right; width: 550px; padding: 0 10px 10px 10px; margin-top: 10px;}
 	
 #footer { font-size: 11px; text-align: center; border-top: 1px solid #ccc; padding: 10px 5px; }
+
+.tabelka { width:100%; border: 1px solid #C9C9C9; position:relative; top:20px;}
