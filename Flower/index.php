@@ -13,7 +13,7 @@ session_start();
   <section class="container">
     <div class="login">
       <h1>Zaloguj się</h1>
-      <form method="post" action="glowna_strona.php" >
+      <form method="post" action="validator.php" >
         <p><input type="text" name="login" value="" placeholder="Nazwa użytkownika bądź email"></p>
         <p><input type="password" name="password" value="" placeholder="hasło"></p>
         <p class="remember_me">
