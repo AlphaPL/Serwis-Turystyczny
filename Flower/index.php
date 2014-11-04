@@ -8,19 +8,12 @@ session_start();
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Zaloguj się!</title>
   <link rel="stylesheet" href="css/style.css">
-  
-  <script>
-	function validateForm()
-	{
-		return true;
-	}
-  </script>
 </head>
 <body>
   <section class="container">
     <div class="login">
       <h1>Zaloguj się</h1>
-      <form method="post" action="glowna_strona.php" onsubmit="return validateForm()">
+      <form method="post" action="validator.php">
         <p><input type="text" name="login" value="" placeholder="Nazwa użytkownika bądź email"></p>
         <p><input type="password" name="password" value="" placeholder="hasło"></p>
         <p class="remember_me">
