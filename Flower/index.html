@@ -1,0 +1,50 @@
+﻿<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Zaloguj się!</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script>
+  
+$(document).ready(function(){
+	$("#add_err").css('display', 'none', 'important');
+	 $("#login").click(function(){	
+		  username=$("#name").val();
+		  password=$("#word").val();
+		  $.ajax({
+		   type: "POST",
+		   url: "login.php",
+			data: {name:username,pass:password},
+		   success: function(html){    
+			alert("dupa");
+			$("#status").append(data);
+		   },
+		   beforeSend:function()
+		   {
+			$("#add_err").css('display', 'inline', 'important');
+			$("#add_err").html("<img src='images/ajax-loader.gif' /> Loading...")
+		   }
+		  });
+		return false;
+	});
+});
+  </script>
+</head>
+
+<body>
+  <section class="container">
+    <div class="login">
+      <h1>Zaloguj się</h1>
+
+        <p><input type="text" id="name" name="name" value="" placeholder="Nazwa użytkownika bądź email"></p>
+        <p><input type="password" id="word" name="word" value="" placeholder="hasło"></p>
+        <p class="remember_me">
+        </p>
+        <p class="submit"><input type="submit" id="login" name="commit" value="Loguj"></p>
+
+    </div>
+	<div id="status"></div>
+  </section>
+</body>
+</html>
