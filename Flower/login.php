@@ -2,7 +2,7 @@
 <?php
 // Start the session
 session_start();
-	if (isset($_SESSION['login']) && $_SESSION['login']==true) header("Location: glowna_strona.php");
+	if (isset($_SESSION['login']) && $_SESSION['login']==true) header("Location: index.php");
 ?>
 <head>
   <meta charset="utf-8">
