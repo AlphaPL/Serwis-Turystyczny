@@ -33,6 +33,8 @@ echo $_SESSION["login"];
     <td>Ocena</td>
   </tr>
  <?php
+ 
+ 
  echo "<tr>";
  $array = array(array("http://i2.cdn.turner.com/cnn/dam/assets/130618174740-01-syria-refugees-horizontal-gallery.jpg","Syria, jaka piękna","Jacek Jackowski",5.0));
 		foreach ($array as &$value) {

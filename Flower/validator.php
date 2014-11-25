@@ -24,9 +24,9 @@ $password = $_POST["password"];
     SELECT * from USERS 
     WHERE LOGIN LIKE '%login%';
 EOF;
-$sql = str_replace("%login%",$login,$sql);
-$sql = str_replace("%password%",$password,$sql);
-echo ($sql);
+$sql = str_replace("%login%",$login,$sql);         //  \ o /
+$sql = str_replace("%password%",$password,$sql);   //    |   
+echo ($sql);                                       //   / \
 
  $ret = $db->query($sql);
  $row = $ret->fetchArray(SQLITE3_ASSOC);

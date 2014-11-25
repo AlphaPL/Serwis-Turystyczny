@@ -31,15 +31,37 @@
     <td>Ocena</td>
   </tr>
  <?php
+ 
+ class MyDB extends SQLite3
+ {
+    function __construct()
+    {
+       $this->open('test.db');
+    }
+ }
+ $db = new MyDB();
+
+ $sql =<<<EOF
+    SELECT * from TRIPS ;
+EOF;
+
  echo "<tr>";
- $array = array(array("http://i2.cdn.turner.com/cnn/dam/assets/130618174740-01-syria-refugees-horizontal-gallery.jpg","Syria, jaka piękna","Jacek Jackowski",5.0));
-		foreach ($array as &$value) {
-		echo"<td><img src=\"". $value[0] ."\"></img></td>";
-		echo"<td>". $value[1] ."</td>";
-		echo"<td>". $value[2] ."</td>";
-		echo"<td>". $value[3] ."</td>";
+ $ret = $db->query($sql);
+ while($row = $ret->fetchArray(SQLITE3_ASSOC)) 
+ {
+	foreach ($row as $value) {
+		echo"<td><img src=\"". $value["MINATURE"] ."\"></img></td>";
+		echo"<td>". $value["TITLE"] ."</td>";
+		echo"<td>". $value["AUTHOR"] ."</td>";
+		echo"<td>". $value["GRADE"] ."</td>";
 		}
+ }
+ 
+ $db->close();
+ 
  echo "</tr>";
+		
+
  ?>
 
 </table>
