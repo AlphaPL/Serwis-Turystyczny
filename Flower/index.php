@@ -1,26 +1,68 @@
-﻿<!DOCTYPE html>
-<?php
-// Start the session
-session_start();
+﻿<?php
+    session_start();
+	if (!isset($_SESSION['login']) || $_SESSION['login']!=true) echo "<a href='index.php'>Zaloguj się></a>";
+	else echo "<a href='logout.php'>Wyloguj się></a>";
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Zaloguj się!</title>
-  <link rel="stylesheet" href="css/style.css">
+<title>Flower</title>
+<meta http-equiv="Content-Language" content="English" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 </head>
 <body>
-  <section class="container">
-    <div class="login">
-      <h1>Zaloguj się</h1>
-      <form method="post" action="validator.php" >
-        <p><input type="text" name="login" value="" placeholder="Nazwa użytkownika bądź email"></p>
-        <p><input type="password" name="password" value="" placeholder="hasło"></p>
-        <p class="remember_me">
-        </p>
-        <p class="submit"><input type="submit" name="commit" value="Loguj"></p>
-      </form>
-    </div>
-  </section>
+
+<div id="wrap">
+
+<div id="header">
+<h1>Portal wycieczek</h1>
+<h2>Pochwal sie swoimi cudownymi przeżyciami
+
+<?php
+echo $_SESSION["login"];
+?>
+
+</h2>
+</div>
+
+<div id="right">
+<table class = "tabelka">
+  <tr>
+    <td>Miniaturka</td>
+    <td>Tytuł</td> 
+    <td>Autor</td>
+    <td>Ocena</td>
+  </tr>
+ <?php
+ echo "<tr>";
+ $array = array(array("http://i2.cdn.turner.com/cnn/dam/assets/130618174740-01-syria-refugees-horizontal-gallery.jpg","Syria, jaka piękna","Jacek Jackowski",5.0));
+		foreach ($array as &$value) {
+		echo"<td><img src=\"". $value[0] ."\"></img></td>";
+		echo"<td>". $value[1] ."</td>";
+		echo"<td>". $value[2] ."</td>";
+		echo"<td>". $value[3] ."</td>";
+		}
+ echo "</tr>";
+ ?>
+
+</table>
+</div>
+
+<div id="left"> 
+<h3>Categories :</h3>
+<ul>
+<li><a href="#">Dodaj wycieczkę</a></li> 
+<li><a href="#">Lista wycieczek</a></li> 
+<li><a href="#">Powiadomienia</a></li> 
+</ul>
+
+</div>
+<div style="clear: both;"> </div>
+
+<div id="footer">
+</div>
+</div>
+
 </body>
 </html>

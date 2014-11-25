@@ -37,7 +37,8 @@ echo ($sql);
  }
  else
 {
-	$_SESSION["login"] = $login;
+	$_SESSION["login"] = true;
+	$_SESSION['user'] = $user;
 	header("Location: glowna_strona.php");
 }
  echo "Operation done successfully\n";
