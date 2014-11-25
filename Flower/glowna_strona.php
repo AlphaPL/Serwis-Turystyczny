@@ -50,7 +50,7 @@ echo $_SESSION["login"];
 <div id="left"> 
 <h3>Categories :</h3>
 <ul>
-<li><a href="#">Dodaj wycieczkę</a></li> 
+<li><a href="dodaj_wpis/dodaj_wpis.html">Dodaj wycieczkę</a></li> 
 <li><a href="#">Lista wycieczek</a></li> 
 <li><a href="#">Powiadomienia</a></li> 
 </ul>
