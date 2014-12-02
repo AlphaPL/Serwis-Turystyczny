@@ -1,7 +1,5 @@
 ﻿<?php
     session_start();
-	if (!isset($_SESSION['login']) || $_SESSION['login']!=true) echo "<a href='login.php'>Zaloguj się></a>";
-	else echo "<a href='logout.php'>Wyloguj się></a>";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -44,22 +42,18 @@
  $sql =<<<EOF
     SELECT * from TRIPS ;
 EOF;
-
- echo "<tr>";
  $ret = $db->query($sql);
  while($row = $ret->fetchArray(SQLITE3_ASSOC)) 
  {
-	foreach ($row as $value) {
-		echo"<td><img src=\"". $value["MINATURE"] ."\"></img></td>";
-		echo"<td>". $value["TITLE"] ."</td>";
-		echo"<td>". $value["AUTHOR"] ."</td>";
-		echo"<td>". $value["GRADE"] ."</td>";
-		}
+		echo "<tr>";
+		echo"<td><img src=\"". $row["MINIATURE"] ."\"></img></td>";
+		echo"<td>". $row["TITLE"] ."</td>";
+		echo"<td>". $row["AUTHOR"] ."</td>";
+		echo"<td>". $row["GRADE"] ."</td>";
+		echo "</tr>";
  }
- 
  $db->close();
  
- echo "</tr>";
 		
 
  ?>
@@ -68,11 +62,15 @@ EOF;
 </div>
 
 <div id="left"> 
-<h3>Categories :</h3>
+<h3>Menu :</h3>
 <ul>
 <li><a href="#">Dodaj wycieczkę</a></li> 
 <li><a href="#">Lista wycieczek</a></li> 
-<li><a href="#">Powiadomienia</a></li> 
+<li><a href="#">Powiadomienia</a></li>
+ <?php
+ 	if (!isset($_SESSION['login']) || $_SESSION['login']!=true) echo "<li><a href='login.php'>Zaloguj się</a></li>";
+	else echo "<li><a href='logout.php'>Wyloguj się</a></li>";
+	?>
 </ul>
 
 </div>

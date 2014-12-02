@@ -22,7 +22,7 @@ $password = $_POST["password"];
 
  $sql =<<<EOF
     SELECT * from USERS 
-    WHERE LOGIN LIKE '%login%';
+    WHERE LOGIN LIKE '%login%' AND PASSWORD LIKE '%password';
 EOF;
 $sql = str_replace("%login%",$login,$sql);         //  \ o /
 $sql = str_replace("%password%",$password,$sql);   //    |   
@@ -39,7 +39,7 @@ echo ($sql);                                       //   / \
 {
 	$_SESSION["login"] = true;
 	$_SESSION['user'] = $user;
-	header("Location: glowna_strona.php");
+	header("Location: index.php");
 }
  echo "Operation done successfully\n";
  
