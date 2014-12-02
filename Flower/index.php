@@ -72,7 +72,15 @@ EOF;
 <div id="left"> 
 <h3>Menu :</h3>
 <ul>
-<li><a href="dodaj_wpis/dodaj_wpis.php">Dodaj wycieczkę</a></li> 
+<?php
+if(isset($_SESSION['login']))
+{
+	 echo "<li><a href='dodaj_wpis/dodaj_wpis.php'>Dodaj wycieczkę</a></li>";
+}
+else
+	 echo "<li><a href='rejestracja.php'>Rejestracja</a></li>";
+?>
+
 <li><a href="#">Lista wycieczek</a></li> 
 <li><a href="#">Powiadomienia</a></li>
  <?php

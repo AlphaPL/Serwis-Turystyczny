@@ -33,9 +33,7 @@ $sql = str_replace("%budget%",$_POST['budget'],$sql);
 $sql = str_replace("%country%",$_POST['country'],$sql);
 echo ($sql);
 
- $ret = $db->query($sql);
- $row = $ret->fetchArray(SQLITE3_ASSOC);
- console.log($row);
+ $ret = $db->exec($sql);
  $db->close();
  if(!$row){
 	header("Location: ../index.php");
