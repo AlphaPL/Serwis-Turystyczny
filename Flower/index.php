@@ -55,7 +55,7 @@ EOF;
  {
 		echo "<tr>";
 		echo"<td><img src=\"". $row["MINIATURE"] ."\"></img></td>";
-		echo"<td>". $row["TITLE"] ."</td>";
+		echo"<td><a href=wyswietl.php?id=".$row["ID"].">". $row["TITLE"] ."</a></td>";
 		echo"<td>". $row["AUTHOR"] ."</td>";
 		echo"<td>". $row["GRADE"] ."</td>";
 		echo "</tr>";
