@@ -27,7 +27,7 @@ EOF;
 $sql = str_replace("%miniature%",$_POST['miniature'],$sql);
 $sql = str_replace("%title%",$_POST['title'],$sql);
 $sql = str_replace("%txt%",$_POST['txt'],$sql);
-$sql = str_replace("%author%",$_SESSION['user'],$sql);
+$sql = str_replace("%author%",$_SESSION['login'],$sql);
 $sql = str_replace("%difficulty%",$_POST['difficulty'],$sql);
 $sql = str_replace("%budget%",$_POST['budget'],$sql);
 $sql = str_replace("%country%",$_POST['country'],$sql);

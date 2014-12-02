@@ -37,8 +37,7 @@ echo ($sql);                                       //   / \
  }
  else
 {
-	$_SESSION["login"] = $login;
-	$_SESSION['user'] = $user;
+	$_SESSION["login"] = true;
 	header("Location: index.php");
 }
  echo "Operation done successfully\n";
