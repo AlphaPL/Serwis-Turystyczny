@@ -15,7 +15,15 @@
 
 <div id="header">
 <h1>Portal wycieczek</h1>
-<h2>Pochwal sie swoimi cudownymi przeżyciami <?php echo $_SESSION['login']; ?>
+<h2>
+<?php
+if(isset($_SESSION['login']))
+{
+	 echo "Pochwal sie swoimi cudownymi przeżyciami ".$_SESSION['login'];
+}
+else
+	echo "Poczytaj sobie anonimie rzeczy";
+	?>
 
 </h2>
 </div>
