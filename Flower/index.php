@@ -15,7 +15,7 @@
 
 <div id="header">
 <h1>Portal wycieczek</h1>
-<h2>Pochwal sie swoimi cudownymi przeżyciami
+<h2>Pochwal sie swoimi cudownymi przeżyciami <?php echo $_SESSION['login']; ?>
 
 </h2>
 </div>
@@ -64,7 +64,7 @@ EOF;
 <div id="left"> 
 <h3>Menu :</h3>
 <ul>
-<li><a href="#">Dodaj wycieczkę</a></li> 
+<li><a href="dodaj_wpis/dodaj_wpis.php">Dodaj wycieczkę</a></li> 
 <li><a href="#">Lista wycieczek</a></li> 
 <li><a href="#">Powiadomienia</a></li>
  <?php

@@ -22,7 +22,7 @@ $password = $_POST["password"];
 
  $sql =<<<EOF
     SELECT * from USERS 
-    WHERE LOGIN LIKE '%login%' AND PASSWORD LIKE '%password';
+    WHERE LOGIN LIKE '%login%' AND PASSWORD LIKE '%password%';
 EOF;
 $sql = str_replace("%login%",$login,$sql);         //  \ o /
 $sql = str_replace("%password%",$password,$sql);   //    |   
@@ -33,11 +33,11 @@ echo ($sql);                                       //   / \
  console.log($row);
  $db->close();
  if(!$row){
-	header("Location: index.php");
+	header("Location: login.php");
  }
  else
 {
-	$_SESSION["login"] = true;
+	$_SESSION["login"] = $login;
 	$_SESSION['user'] = $user;
 	header("Location: index.php");
 }
