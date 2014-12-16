@@ -17,10 +17,6 @@
 <h1>Portal wycieczek</h1>
 <h2>Pochwal sie swoimi cudownymi przeżyciami
 
-<?php
-echo $_SESSION["login"];
-?>
-
 </h2>
 </div>
 
