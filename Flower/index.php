@@ -35,6 +35,9 @@ else
     <td>Tytuł</td> 
     <td>Autor</td>
     <td>Ocena</td>
+	<?php
+		echo "<td>". "Admin Tools"."</td>";
+	?>
   </tr>
  <?php
  
@@ -46,10 +49,18 @@ else
     }
  }
  $db = new MyDB();
-
+if(isset($_SESSION['admin']))
+{
  $sql =<<<EOF
     SELECT * from TRIPS ;
 EOF;
+}
+else
+{
+ $sql =<<<EOF
+    SELECT * from TRIPS WHERE APPROVED = 1 ;
+EOF;
+}
  $ret = $db->query($sql);
  while($row = $ret->fetchArray(SQLITE3_ASSOC)) 
  {
@@ -58,7 +69,20 @@ EOF;
 		echo"<td><a href=wyswietl.php?id=".$row["ID"].">". $row["TITLE"] ."</a></td>";
 		echo"<td>". $row["AUTHOR"] ."</td>";
 		echo"<td>". $row["GRADE"] ."</td>";
+		if(isset($_SESSION['admin']))
+		{
+			echo"<td>";
+			echo"<a href=usun.php?id=".$row["ID"].">". "Usuń" ."</a><br/>";
+			if($row["APPROVED"] == 1)
+			{
+				echo"<a href=prove.php?id=".$row["ID"].">". "Odtwierdź" ."</a><br/>";
+			}
+			else
+				echo"<a href=prove.php?id=".$row["ID"].">". "Zatwierdź" ."</a><br/>";
+			echo "</td>";
+		}
 		echo "</tr>";
+
  }
  $db->close();
  

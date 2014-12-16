@@ -37,6 +37,10 @@ echo ($sql);                                       //   / \
  }
  else
 {
+	if ($row['ROLE'] == 'A')
+	{
+		$_SESSION["admin"] = true;
+	}
 	$_SESSION["login"] = $login;
 	header("Location: index.php");
 }
