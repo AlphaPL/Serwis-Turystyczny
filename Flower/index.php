@@ -37,6 +37,7 @@ else
     <td>Ocena</td>
     <td>Edycja</td>
 	<?php
+	if(isset($_SESSION['admin']))
 		echo "<td>". "Admin Tools"."</td>";
 	?>
   </tr>
@@ -80,10 +81,10 @@ EOF;
 			echo"<a href=usun.php?id=".$row["ID"].">". "Usuń" ."</a><br/>";
 			if($row["APPROVED"] == 1)
 			{
-				echo"<a href=prove.php?id=".$row["ID"].">". "Odtwierdź" ."</a><br/>";
+				echo"<a href=disapprove.php?id=".$row["ID"].">". "Odtwierdź" ."</a><br/>";
 			}
 			else
-				echo"<a href=prove.php?id=".$row["ID"].">". "Zatwierdź" ."</a><br/>";
+				echo"<a href=approve.php?id=".$row["ID"].">". "Zatwierdź" ."</a><br/>";
 			echo "</td>";
 		}
 		echo "</tr>";

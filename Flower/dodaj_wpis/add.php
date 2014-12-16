@@ -22,7 +22,7 @@ class MyDB extends SQLite3
 
  $sql =<<<EOF
     INSERT INTO TRIPS VALUES 
-    (NULL,'%miniature%','%title%','%author%',0,'%txt%','%difficulty%','%budget%','%country%');
+    (NULL,'%miniature%','%title%','%author%',0,'%txt%','%difficulty%','%budget%','%country%', 0);
 EOF;
 $sql = str_replace("%miniature%",$_POST['miniature'],$sql);
 $sql = str_replace("%title%",$_POST['title'],$sql);
