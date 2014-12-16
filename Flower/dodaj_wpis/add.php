@@ -32,9 +32,29 @@ $sql = str_replace("%difficulty%",$_POST['difficulty'],$sql);
 $sql = str_replace("%budget%",$_POST['budget'],$sql);
 $sql = str_replace("%country%",$_POST['country'],$sql);
 echo ($sql);
+$ret = $db->exec($sql);
+  $sql =<<<EOF
+    SELECT EMAIL FROM USERS
+EOF;
+ 
+ $ret = $db->query($sql);
+ 
+ $subject = 'Nowa wiadomosc';
+ $msg = "Wiadomosc !!!!!!!!";
+ $headers = 'From: flower@gmail.com' . "\r\n";
+$whitelist = array('127.0.0.1', "::1");
+ while($row = $ret->fetchArray(SQLITE3_ASSOC)) 
+ {
+	if(!in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
+		mail($row['EMAIL'],$subject , $msg, $headers);
+	}		
+ }
 
- $ret = $db->exec($sql);
+
+ 
  $db->close();
+ 
+ 
  if(!$row){
 	header("Location: ../index.php");
  }
