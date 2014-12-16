@@ -35,6 +35,7 @@ else
     <td>Tytuł</td> 
     <td>Autor</td>
     <td>Ocena</td>
+    <td>Edycja</td>
   </tr>
  <?php
  
@@ -53,11 +54,15 @@ EOF;
  $ret = $db->query($sql);
  while($row = $ret->fetchArray(SQLITE3_ASSOC)) 
  {
+                $link="<a href=edytuj.php?id={$row['ID']}>Edytuj</a>";
 		echo "<tr>";
 		echo"<td><img src=\"". $row["MINIATURE"] ."\"></img></td>";
 		echo"<td><a href=wyswietl.php?id=".$row["ID"].">". $row["TITLE"] ."</a></td>";
 		echo"<td>". $row["AUTHOR"] ."</td>";
 		echo"<td>". $row["GRADE"] ."</td>";
+                if (isset($_SESSION['login']) && $_SESSION['login']==$row['AUTHOR']) {
+                    echo "<td>$link</td>";
+                }
 		echo "</tr>";
  }
  $db->close();
