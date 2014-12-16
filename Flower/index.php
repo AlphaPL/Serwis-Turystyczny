@@ -68,7 +68,7 @@ EOF;
 		echo "<tr>";
 		echo"<td><img src=\"". $row["MINIATURE"] ."\"></img></td>";
 		echo"<td><a href=wyswietl.php?id=".$row["ID"].">". $row["TITLE"] ."</a></td>";
-		echo"<td>". $row["AUTHOR"] ."</td>";
+		echo"<td><a href=showuser.php?id=".$row["AUTHOR"].">". $row["AUTHOR"] ."</a></td>";
 		echo"<td>". $row["GRADE"] ."</td>";
 		if(isset($_SESSION['admin']))
 		{
@@ -106,7 +106,7 @@ else
 	 echo "<li><a href='rejestracja.php'>Rejestracja</a></li>";
 ?>
 
-<li><a href="#">Lista wycieczek</a></li> 
+<li><a href="index.php">Lista wycieczek</a></li> 
 <li><a href="#">Powiadomienia</a></li>
  <?php
  	if (!isset($_SESSION['login']) || $_SESSION['login']!=true) echo "<li><a href='login.php'>Zaloguj się</a></li>";
