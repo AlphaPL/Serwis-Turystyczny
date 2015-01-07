@@ -7,83 +7,39 @@
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 
 <style type="text/css">
-#sty
-{
-	margin:0 auto;
-	margin-top:3px;
-	border:#0F0 dashed 2px;
-	width:500px;
-	padding:15px;
-	}
-#fileid
-{
-	width:85px;
-	height:20px;
-	}
-img
-{
-	margin-right:20px;
-}
-#nameid
-{
-	font-size:18px;
-	color:#06F;
-	font-family:"Comic Sans MS", cursive;
-	margin-bottom:5px;
-}
-#msgid
-{
-	font-size:20px;
-	color:#3CF;
-	font-family:"Courier New", Courier, monospace;
-	margin-bottom:5px;
-}
-#tnameid
-{
-	width:200px;
-	font-size:20px;
-	font-family:"Courier New", Courier, monospace;
-	height:35px;
-	color:#006;
-	border:#666 solid 2px;
-}
 #tjobid
 {
-	width:200px;
+	width:757px;
 	height:35px;
-	font-size:20px;
+	font-size:13px;
 	font-family:"Courier New", Courier, monospace;
 	color:#006;
-	border:#666 solid 2px;
+	border:#005CB9 solid 1px;
 }
 #tmessageid
 {
-	max-width:500px;
+	max-width:760px;
 	max-height:100px;
-	min-width:200px;
+	min-width:757px;
 	min-height:100px;
-	font-size:20px;
+	font-size:12px;
 	font-family:"Courier New", Courier, monospace;
 	color:#006;
-	border:#666 solid 2px;
-}
-#one
-{
-	font-size:18px;
-	font-family:"Times New Roman", Times, serif;
-	color:#00F;
+	border:#005CB9 solid 1px;
 }
 #submit
 {
 	width:200px;
 	height:30px;
-	background-color:#999;
+	background: url("images/bg.jpg");
 	color:#FFF;
-	border:#666 solid 2px;
+	border:#005CB9 solid 1px;
 }
-
-
-
+#comment_box
+{
+	border: 1px solid #005CB9;
+	background-color: #F1F5F9;
+}
 </style>
 
 <script type="text/javascript">
@@ -140,8 +96,21 @@ $sql = str_replace("%id%",$id,$sql);
 		echo "Trudność: {$row['DIFFICULTY']} <br>";
 		echo "Budżet: {$row['BUDGET']} <br>";
 		echo "<img src='{$row['MINIATURE']}'></img><br>";
-		echo "{$row['TXT']}";
+		echo "{$row['TXT']}<br>";
  }
+ 
+ $sql =<<<EOF
+    SELECT * FROM COMMENTS WHERE TXTID=%id%;
+EOF;
+	$sql = str_replace("%id%",$id,$sql);
+	$ret = $db->query($sql);
+	echo "<h2>Komentarze:</h2>";
+	while($row = $ret->fetchArray(SQLITE3_ASSOC)) 
+	{
+		echo "<div id=\"comment_box\"><h3>{$row['TITLE']}<span style=\"float: right;\">{$row['AUTHOR']}</span></h3>";
+		echo "{$row['TXT']}</div><br>";
+	}
+ 
  $db->close();
 ?>
 <div style="clear: both;"> </div>
@@ -157,21 +126,13 @@ EOT;
 echo $_GET["id"];
 echo <<< EOT
 " onSubmit="return validation()">
-<table width="500" border="0" style="margin:auto;">
-  </tr>
-  <tr>
-    <td align="right">
-    <input type="text" name="title" id="tjobid"></td>
-  </tr>
-  
-  <tr>
-    <td><textarea name="message" id="tmessageid"></textarea></td>
-  </tr>
-  <tr>
-
-  <td><input type="submit" name="submit" id="submit" value="Dodaj Komentarz"></td>
-  </tr>
-</table>
+<div>
+<h3>Tytuł:</h3>
+<input type="text" name="title" id="tjobid"><br><br>
+<h3>Opis:</h3>
+<textarea name="message" id="tmessageid"></textarea><br><br>
+<input type="submit" name="submit" id="submit" value="Dodaj komentarz">
+</div>
 EOT;
 }
 ?>

@@ -6,7 +6,7 @@ if(isset($_POST['submit']))
 	 {
 		function __construct()
 		{
-		   $this->open('..\test.db');
+		   $this->open('test.db');
 		}
 	 }
 	 $db = new MyDB();
@@ -31,6 +31,6 @@ EOF;
 	echo ($sql);
 	$ret = $db->exec($sql);
 
-	header("Location:index.php");
+	header("Location:wyswietl.php?id=" . $_GET['id']);
 }
 ?>
