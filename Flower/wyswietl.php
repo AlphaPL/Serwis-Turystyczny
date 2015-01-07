@@ -104,6 +104,7 @@ $sql = str_replace("%id%",$id,$sql);
 EOF;
 	$sql = str_replace("%id%",$id,$sql);
 	$ret = $db->query($sql);
+	echo "<div id=\"footer\"></div>";
 	echo "<h2>Komentarze:</h2>";
 	while($row = $ret->fetchArray(SQLITE3_ASSOC)) 
 	{
@@ -118,8 +119,8 @@ EOF;
 
 <?php
 session_start();
+echo "<h2>Dodaj nowy komentarz:</h2>";
 if(isset($_SESSION["login"])) {
-
 echo <<< EOT
 <form name="comment" method="post" action="dodaj_komentarz.php?id=
 EOT;
@@ -134,6 +135,8 @@ echo <<< EOT
 <input type="submit" name="submit" id="submit" value="Dodaj komentarz">
 </div>
 EOT;
+} else {
+	echo "*Musisz być zalogowany";
 }
 ?>
 
